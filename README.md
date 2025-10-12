@@ -21,3 +21,12 @@
     # Now list clusters
     argocd cluster list
     ```
+3. Create application
+    ```
+    argocd app create apps \
+          --dest-namespace argocd \
+          --dest-server https://kubernetes.default.svc \
+          --repo https://github.com/Josh-cannot-code/personal-cluster.git \
+          --path .
+    argocd app sync apps
+    ```
