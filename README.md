@@ -21,7 +21,12 @@
     # Now list clusters
     argocd cluster list
     ```
-3. Create application
+3. Create infiscal secret so secrets can sync properly
+    ```
+    kubectl create secret generic infiscal-token-secret \
+      --from-literal=token=<Infiscal token>
+    ```
+4. Create application
     ```
     argocd app create apps \
           --dest-namespace argocd \
