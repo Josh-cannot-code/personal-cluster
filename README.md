@@ -23,8 +23,7 @@
     ```
 3. Create infiscal secret so secrets can sync properly
     ```
-    kubectl create secret generic infiscal-token-secret \
-      --from-literal=token=<Infiscal token>
+    kubectl create secret generic service-token --from-literal=infisicalToken="<your-service-token-here>"
     ```
 4. Create application
     ```
