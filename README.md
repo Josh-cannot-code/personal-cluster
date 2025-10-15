@@ -25,7 +25,9 @@
     ```
     kubectl create secret generic service-token --from-literal=infisicalToken="<your-service-token-here>"
     ```
-4. Create application
+4. Install open iscsi on the host
+    This depends on the os
+5. Create application
     ```
     argocd app create apps \
           --dest-namespace argocd \
