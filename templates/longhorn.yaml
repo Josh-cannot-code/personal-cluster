@@ -12,7 +12,9 @@ spec:
     repoURL: https://charts.longhorn.io/
     targetRevision: 1.10.0
     helm:
-      releaseName: longhorn
+      values: |
+        preUpgradeChecker:
+          jobEnabled: false
   destination:
     name: "in-cluster"
     namespace: longhorn-system
