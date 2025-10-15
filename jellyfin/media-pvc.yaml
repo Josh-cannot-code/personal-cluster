@@ -7,5 +7,5 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 50Gi
-  storageClassName: nfs-client
+      storage: 5Gi
+  storageClassName: longhorn

@@ -1,5 +1,11 @@
 # personal-cluster
 
+## Notes for minikube
+```
+minikube addons enable storage-provisioner
+minikube addons enable default-storageclass
+```
+
 ## From scratch
 
 1. Install ArgoCD
