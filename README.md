@@ -26,7 +26,10 @@
     kubectl create secret generic service-token --from-literal=infisicalToken="<your-service-token-here>"
     ```
 4. Install open iscsi on the host
-    This depends on the os
+    for minikube:
+    ```
+    minikube ssh "sudo apt-get update;sudo apt-get install -y open-iscsi"
+    ```
 5. Create application
     ```
     argocd app create apps \
