@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    chart: seer-chart
+    chart: seerr-chart
     repoURL: https://github.com/seerr-team/seerr/tree/develop/charts/
     targetRevision: 3.0.0
   destination:
