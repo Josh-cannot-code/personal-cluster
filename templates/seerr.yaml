@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: seerr
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: seer-chart
+    repoURL: https://github.com/seerr-team/seerr/tree/develop/charts/
+    targetRevision: 2.7.3
+  destination:
+    name: "in-cluster"
+    namespace: jellyfin
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
