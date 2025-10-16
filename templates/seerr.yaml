@@ -8,7 +8,7 @@ spec:
   source:
     chart: seer-chart
     repoURL: https://github.com/seerr-team/seerr/tree/develop/charts/
-    targetRevision: 2.7.3
+    targetRevision: 3.0.0
   destination:
     name: "in-cluster"
     namespace: jellyfin
