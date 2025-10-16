@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     chart: seerr-chart
-    repoURL: https://github.com/seerr-team/seerr/tree/develop/charts/
+    repoURL: https://github.com/seerr-team/seerr.git
     targetRevision: 3.0.0
   destination:
     name: "in-cluster"
