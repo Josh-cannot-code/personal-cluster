@@ -7,26 +7,17 @@ metadata:
     argocd.argoproj.io/sync-wave: "-1" 
 spec:
   project: default
-  source:
-    chart: longhorn
+  sources:
+  - path: longhorn
+    repoURL: 'https://github.com/Josh-cannot-code/personal-cluster.git'
+    targetRevision: Head 
+  - chart: longhorn
     repoURL: https://charts.longhorn.io/
     targetRevision: 1.10.0
     helm:
       values: |
         preUpgradeChecker:
           jobEnabled: false
-      extraObjects:
-        - apiVersion: v1
-          kind: Namespace
-          metadata:
-            name: longhorn-system
-            labels:
-              pod-security.kubernetes.io/enforce: privileged
-              pod-security.kubernetes.io/enforce-version: latest
-              pod-security.kubernetes.io/audit: privileged
-              pod-security.kubernetes.io/audit-version: latest
-              pod-security.kubernetes.io/warn: privileged
-              pod-security.kubernetes.io/warn-version: latest
   destination:
     name: "in-cluster"
     namespace: longhorn-system
@@ -34,4 +25,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
 
