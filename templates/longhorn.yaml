@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "-1" 
+    pod-security.kubernetes.io/enforce: privileged
 spec:
   project: default
   source:
