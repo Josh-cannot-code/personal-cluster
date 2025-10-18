@@ -10,7 +10,7 @@ spec:
   sources:
   - path: longhorn
     repoURL: 'https://github.com/Josh-cannot-code/personal-cluster.git'
-    targetRevision: Head 
+    targetRevision: HEAD
   - chart: longhorn
     repoURL: https://charts.longhorn.io/
     targetRevision: 1.10.0
