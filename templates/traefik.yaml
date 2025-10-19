@@ -11,6 +11,9 @@ spec:
     targetRevision: 37.1.2
     helm:
       values: |
+        ingressRoute:
+          dashboard:
+            enabled: true
         gateway:
           namespacePolicy: All
         providers:
