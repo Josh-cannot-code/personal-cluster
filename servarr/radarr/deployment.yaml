@@ -36,7 +36,7 @@ spec:
       volumes:
       - name: config
         persistentVolumeClaim:
-          claimName: prowlarr-config-pvc
+          claimName: radarr-config-pvc
       - name: data
         persistenVolumeClaim:
           claimName: jellyfin-media-pvc
