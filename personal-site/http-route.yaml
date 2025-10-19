@@ -30,18 +30,14 @@ kind: HTTPRoute
 metadata:
   name: personal-site-https-route
   namespace: psa
-  sectionName: apex-websecure
 spec:
   parentRefs:
   - name: traefik-gateway
     namespace: traefik
+    sectionName: apex-websecure
   hostnames:
   - "joshuadallacqua.com"
   rules:
-  - filters: 
-    - type:
-      requestRedirect:
-        scheme: https
   - matches:
     - path:
         type: PathPrefix
