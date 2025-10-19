@@ -15,6 +15,6 @@ spec:
         type: PathPrefix
         value: /
     backendRefs:
-    - name: psa
+    - name: psa-service
       namespace: psa
       port: 80
