@@ -1,7 +1,10 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: nfs-client
-provisioner: kubernetes.io/no-provisioner # indicates that this StorageClass does not support automatic provisioning
-volumeBindingMode: WaitForFirstConsumer
+  name: example-nfs
+provisioner: example.com/external-nfs
+parameters:
+  server: 192.168.18.13
+  path: /
+  readOnly: "false"
 
