@@ -26,8 +26,8 @@ spec:
   type: LoadBalancer
   ports:
     - name: local-discovery
-      port: 8096         
-      targetPort: 8096  
+      port: 7359
+      targetPort: 7359
     - name: dlna
       port: 1900
       targetPort: 1900
