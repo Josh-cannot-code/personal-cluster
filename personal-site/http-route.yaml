@@ -11,7 +11,7 @@ spec:
   - "joshuadallacqua.com"
   rules:
   - filters: 
-    - type:
+    - type: RequestRedirect
       requestRedirect:
         scheme: https
   - matches:
