@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: jellyfin
+  name: servarr
   namespace: argocd
 spec:
   project: default
   source:
-    path: jellyfin
+    path: servarr
     repoURL: 'https://github.com/Josh-cannot-code/personal-cluster.git'
     targetRevision: HEAD
   destination:
     name: "in-cluster"
-    namespace: jellyfin
+    namespace: servarr
   syncPolicy:
     automated:
       prune: true
