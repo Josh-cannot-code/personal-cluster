@@ -5,3 +5,4 @@ resources:
   - ./media-pvc.yaml
   - ./config-pvc.yaml
   - ./service.yaml
+  - ./http-route.yaml
