@@ -36,5 +36,5 @@ spec:
         value: /
     backendRefs:
     - name: jellyfin
-      namespace: jellyfin
+      namespace: servarr
       port: 8096
