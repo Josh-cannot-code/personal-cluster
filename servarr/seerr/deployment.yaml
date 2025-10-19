@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seerr-deployment
+  labels:
+    app: seerr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seerr
+  template:
+    metadata:
+      labels:
+        app: seerr
+    spec:
+      containers:
+      - name: seerr
+        image: fallenbagel/jellyseerr:latest
+        env:
+          - name: TZ
+            value: America/New_York
+        ports:
+        - containerPort: 5055
+        volumeMounts:
+        - name: config
+          mountPath: /app/config
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: seerr-config-pvc
