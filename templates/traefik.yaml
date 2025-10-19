@@ -11,9 +11,14 @@ spec:
     targetRevision: 37.1.2
     helm:
       values: |
-        experimental:
+        gateway:
+          namespacePolicy: All
+        providers:
+          kubernetesIngress:
+            enabled: false
           kubernetesGateway:
             enabled: true
+        
   destination:
     name: "in-cluster"
   syncPolicy:
