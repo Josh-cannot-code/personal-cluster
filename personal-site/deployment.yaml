@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psa-deployment
+  namespace: psa
+  labels:
+    app: psa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: psa
+  template:
+    metadata:
+      labels:
+        app: psa
+    spec:
+      containers:
+      - name: psa
+        image: ghcr.io/josh-cannot-code/docker-psa:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 42069
+          name: psa-port
+      imagePullSecrets:
+      - name: regcred
