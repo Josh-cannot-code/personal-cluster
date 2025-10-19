@@ -16,14 +16,6 @@ spec:
       requestRedirect:
         scheme: https
         statusCode: 301
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /
-    backendRefs:
-    - name: psa-service
-      namespace: psa
-      port: 80
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute

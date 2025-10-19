@@ -7,6 +7,26 @@ spec:
   parentRefs:
   - name: traefik-gateway
     namespace: traefik
+    sectionName: web
+  hostnames:
+  - "jellyfin.joshuadallacqua.com"
+  rules:
+  - filters: 
+    - type: RequestRedirect
+      requestRedirect:
+        scheme: https
+        statusCode: 301
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: jellyfin-https-route
+  namespace: jellyfin
+spec:
+  parentRefs:
+  - name: traefik-gateway
+    namespace: traefik
+    sectionName: websecure
   hostnames:
   - "jellyfin.joshuadallacqua.com"
   rules:
