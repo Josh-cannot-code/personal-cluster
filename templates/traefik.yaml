@@ -18,9 +18,9 @@ spec:
             enabled: false
           kubernetesGateway:
             enabled: true
-        
   destination:
     name: "in-cluster"
+    namespace: traefik
   syncPolicy:
     automated:
       prune: true
