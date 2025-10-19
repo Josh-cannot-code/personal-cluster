@@ -14,14 +14,14 @@ spec:
         ports:
           web:
             port: 80
-            expose: true
-            protocol: TCP
+            expose:
+              default: true
           websecure:
             port: 443
-            expose: true
-            protocol: TCP
+            expose:
+              default: true
             tls:
-              enabled: true   # enables TLS on the websecure entryPoint
+              enabled: true
         ingressRoute:
           dashboard:
             enabled: true
@@ -34,7 +34,6 @@ spec:
               protocol: HTTP
               namespacePolicy: 
                 from: All
-
             websecure:         # HTTPS listener that matches entryPoint `websecure`
               port: 443
               protocol: HTTPS  # TLS terminates inside Traefik
