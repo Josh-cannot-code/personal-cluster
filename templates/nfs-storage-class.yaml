@@ -6,14 +6,20 @@ metadata:
 spec:
   project: default
   source:
-    path: nfs
-    repoURL: 'https://github.com/Josh-cannot-code/personal-cluster.git'
-    targetRevision: HEAD
+    chart: nfs-subdir-external-provisioner
+    repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+    helm:
+      values: |
+        nfs:
+          server: 192.168.18.13
+          path: /
   destination:
     name: "in-cluster"
-    namespace: default
+    namespace: nfs-provisioner
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
 
