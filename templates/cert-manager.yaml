@@ -16,7 +16,7 @@ spec:
         config:
           apiVersion: "controller.config.cert-manager.io/v1alpha1"
           kind: "ControllerConfiguration"
-          enableGatewayApi: true
+          enableGatewayAPI: true
   - path: cert-manager
     repoURL: 'https://github.com/Josh-cannot-code/personal-cluster.git'
     targetRevision: HEAD
