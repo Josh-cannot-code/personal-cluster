@@ -49,7 +49,7 @@ spec:
               namespacePolicy:
                 from: All
               mode: Terminate
-              hostname: joshuadallacqua.com"
+              hostname: joshuadallacqua.com
               certificateRefs:    
                 - name: jdal-com-tls
         providers:
