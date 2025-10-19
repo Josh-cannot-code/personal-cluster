@@ -11,16 +11,11 @@ spec:
     targetRevision: 37.1.2
     helm:
       values: |
-        ingressRoute:
-          dashboard:
-            enabled: true
         gateway:
           namespacePolicy: All
         providers:
           kubernetesGateway:
             enabled: true
-        api:
-          dashboard: true
   destination:
     name: "in-cluster"
     namespace: traefik
