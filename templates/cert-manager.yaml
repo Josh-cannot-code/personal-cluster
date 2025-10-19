@@ -5,14 +5,21 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    chart: cert-manager
+  sources:
+  - chart: cert-manager
     repoURL: oci://quay.io/jetstack/charts/cert-manager
     targetRevision: v1.19.1
     helm:
       values: |
         crds:
           enabled: true
+        config:
+          apiVersion: "controller.config.cert-manager.io/v1alpha1"
+          kind: "ControllerConfiguration"
+          enableGatewayApi: true
+  - path: cert-manager
+    repoURL: 'https://github.com/Josh-cannot-code/personal-cluster.git'
+    targetRevision: HEAD
   destination:
     name: "in-cluster"
     namespace: cert-manager
