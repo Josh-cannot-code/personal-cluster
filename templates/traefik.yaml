@@ -34,13 +34,22 @@ spec:
               protocol: HTTP
               namespacePolicy: 
                 from: All
-            websecure:         # HTTPS listener that matches entryPoint `websecure`
+            websecure:        
               port: 443
-              protocol: HTTPS  # TLS terminates inside Traefik
+              protocol: HTTPS
               namespacePolicy:
                 from: All
               mode: Terminate
               hostname: "*.joshuadallacqua.com"
+              certificateRefs:    
+                - name: jdal-com-tls
+            apex-websecure:        
+              port: 443
+              protocol: HTTPS
+              namespacePolicy:
+                from: All
+              mode: Terminate
+              hostname: joshuadallacqua.com"
               certificateRefs:    
                 - name: jdal-com-tls
         providers:
