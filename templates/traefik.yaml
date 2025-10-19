@@ -19,6 +19,8 @@ spec:
         providers:
           kubernetesGateway:
             enabled: true
+        api:
+          dashboard: true
   destination:
     name: "in-cluster"
     namespace: traefik
