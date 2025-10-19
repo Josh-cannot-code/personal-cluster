@@ -11,6 +11,8 @@ spec:
     targetRevision: 37.1.2
     helm:
       values: |
+        api:
+          dashboard: true
         gateway:
           namespacePolicy: All
         providers:
