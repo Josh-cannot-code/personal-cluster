@@ -11,13 +11,15 @@ spec:
     targetRevision: 37.1.2
     helm:
       values: |
-        api:
-          dashboard: true
+        ingressRoute:
+          dashboard:
+            enabled: true
+            matchRule: Host(`dashboard.localhost`)
+            entryPoints:
+              - web
         gateway:
           namespacePolicy: All
         providers:
-          kubernetesIngress:
-            enabled: false
           kubernetesGateway:
             enabled: true
   destination:
