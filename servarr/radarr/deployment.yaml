@@ -17,6 +17,9 @@ spec:
       containers:
       - name: radarr
         image: ghcr.io/hotio/radarr
+        env:
+          - name: TZ
+            value: America/New_York
         ports:
         - containerPort: 7878
         volumeMounts:
