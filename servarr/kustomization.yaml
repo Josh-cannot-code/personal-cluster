@@ -12,3 +12,6 @@ resources:
   - ./seerr/service.yaml
   - ./seerr/config-pvc.yaml
   - ./seerr/deployment.yaml
+  - ./radarr/service.yaml
+  - ./radarr/config-pvc.yaml
+  - ./radarr/deployment.yaml
