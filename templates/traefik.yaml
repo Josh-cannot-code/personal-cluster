@@ -15,7 +15,9 @@ spec:
           dashboard:
             enabled: true
         gateway:
-          namespacePolicy: All
+          listeners:
+            web:
+              namespacePolicy: All
         providers:
           kubernetesGateway:
             enabled: true
