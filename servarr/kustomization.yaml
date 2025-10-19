@@ -9,3 +9,6 @@ resources:
   - ./prowlarr/service.yaml
   - ./prowlarr/config-pvc.yaml
   - ./prowlarr/deployment.yaml
+  - ./seerr/service.yaml
+  - ./seerr/config-pvc.yaml
+  - ./seerr/deployment.yaml
