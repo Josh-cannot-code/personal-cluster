@@ -7,11 +7,39 @@ spec:
   parentRefs:
   - name: traefik-gateway
     namespace: traefik
+    sectionName: web
   hostnames:
   - "joshuadallacqua.com"
   rules:
   - filters: 
     - type: RequestRedirect
+      requestRedirect:
+        scheme: https
+        statusCode: 301
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: psa-service
+      namespace: psa
+      port: 80
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: personal-site-https-route
+  namespace: psa
+  sectionName: apex-websecure
+spec:
+  parentRefs:
+  - name: traefik-gateway
+    namespace: traefik
+  hostnames:
+  - "joshuadallacqua.com"
+  rules:
+  - filters: 
+    - type:
       requestRedirect:
         scheme: https
   - matches:
