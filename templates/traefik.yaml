@@ -19,6 +19,8 @@ spec:
         providers:
           kubernetesGateway:
             enabled: true
+          kubernetesCRD:
+            allowCrossNamespace: true
         api:
           dashboard: true
   destination:
