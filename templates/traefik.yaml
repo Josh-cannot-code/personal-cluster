@@ -17,7 +17,8 @@ spec:
         gateway:
           listeners:
             web:
-              namespacePolicy: All
+              namespacePolicy: 
+                from: All
         providers:
           kubernetesGateway:
             enabled: true
