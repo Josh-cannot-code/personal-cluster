@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gateway-api
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: gateway-api
+    repoURL: 'https://github.com/Josh-cannot-code/personal-cluster.git'
+    targetRevision: HEAD
+  destination:
+    name: "in-cluster"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
