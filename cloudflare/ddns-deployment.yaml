@@ -26,4 +26,4 @@ spec:
           - name: DOMAINS
             value: joshuadallacqua.com,*.joshuadallacqua.com
           - name: PROXIED
-            value: true
+            value: "true"
