@@ -17,4 +17,5 @@ resources:
   - ./radarr/deployment.yaml
   - ./qbittorrent/deployment.yaml
   - ./qbittorrent/config-pvc.yaml
+  - ./qbittorrent/service.yaml
   - ./namespace.yaml

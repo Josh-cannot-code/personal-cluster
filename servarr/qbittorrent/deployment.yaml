@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   labels:
     app: qbittorrent
-  name: qbittiorrent
+  name: qbittorrent
   namespace: servarr
 spec:
   selector:
     matchLabels:
-      app: qbittiorrent
+      app: qbittorrent
   template:
     metadata:
       labels:
-        app: qbittiorrent
+        app: qbittorrent
     spec:
       containers:
         - image: ghcr.io/qdm12/gluetun:latest
@@ -64,9 +64,6 @@ spec:
               mountPath: /config
             - name: qb-downloads
               mountPath: /downloads
-#          securityContext:
-#            allowPrivilegeEscalation: false
-#            capabilities: { drop: ["ALL"] }
       volumes:
         - name: qb-config
           persistentVolumeClaim:
