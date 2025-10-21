@@ -22,7 +22,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: cf-ddns-secret
-                value: cf-ddns-token
+                key: cf-ddns-token
           - name: DOMAINS
             value: joshuadallacqua.com,*.joshuadallacqua.com
           - name: PROXIED
