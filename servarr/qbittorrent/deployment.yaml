@@ -59,7 +59,18 @@ spec:
             - containerPort: 6881   # BitTorrent UDP
               name: bt-udp
               protocol: UDP
+          volumes:
+            - name: qb-config
+              mountPath: /config
+            - name: qb-downloads
+              mountPath: /downloads
           securityContext:
             allowPrivilegeEscalation: false
             capabilities: { drop: ["ALL"] }
-
+      volumes:
+        - name: qb-config
+          persistentVolumeClaim:
+            claimName: qbittorrent-config-pvc
+        - name: qb-downloads
+          persistentVolumeClaim:
+            claimName: jellyfin-media-pvc
