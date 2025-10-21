@@ -28,22 +28,25 @@ spec:
             - name: VPN_SERVICE_PROVIDER
               value: protonvpn
             - name: VPN_TYPE
-              value: "wireguard"
+              value: wireguard
             - name: WIREGUARD_PRIVATE_KEY
-              value: "<priv key val>"
-            - name: WIREGUARD_ADDRESSES
-              value: "<IP val>"
+              valueFrom:
+                secretKeyRef:
+                  name: wireguard-secret
+                  key: wireguard-pk
+            - name: VPN_PORT_FORWARDING
+              value: on
             - name: FIREWALL_INPUT_PORTS
               value: "9091"
-        - image: transmission
-          env:
-            TRANSMISSION__RPC_PORT: "9091"
-            TRANSMISSION__DOWNLOAD_DIR: /downloads/completed
-            TRANSMISSION__INCOMPLETE_DIR: /downloads/incomplete
-            envFrom:
-              - secretRef:
-                  name: transmission-secret
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
+#        - image: transmission
+#          env:
+#            TRANSMISSION__RPC_PORT: "9091"
+#            TRANSMISSION__DOWNLOAD_DIR: /downloads/completed
+#            TRANSMISSION__INCOMPLETE_DIR: /downloads/incomplete
+#            envFrom:
+#              - secretRef:
+#                  name: transmission-secret
+#            securityContext:
+#              allowPrivilegeEscalation: false
+#              readOnlyRootFilesystem: true
+#              capabilities: { drop: ["ALL"] }

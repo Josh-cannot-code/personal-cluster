@@ -15,3 +15,4 @@ resources:
   - ./radarr/service.yaml
   - ./radarr/config-pvc.yaml
   - ./radarr/deployment.yaml
+  - ./qbittorrent/deployment.yaml
