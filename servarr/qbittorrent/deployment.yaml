@@ -59,7 +59,7 @@ spec:
             - containerPort: 6881   # BitTorrent UDP
               name: bt-udp
               protocol: UDP
-          volumes:
+          volumeMounts:
             - name: qb-config
               mountPath: /config
             - name: qb-downloads
