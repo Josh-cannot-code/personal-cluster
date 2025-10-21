@@ -4,6 +4,8 @@ metadata:
   name: radarr
   labels:
     app: radarr
+  annotations:
+    metallb.io/loadBalancerIPs: 192.168.18.54
 spec:
   selector:
     app: radarr

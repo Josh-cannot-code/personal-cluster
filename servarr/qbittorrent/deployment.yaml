@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: qbittorrent
+  name: qbittiorrent
+spec:
+  selector:
+    matchLabels:
+      app: qbittiorrent
+  template:
+    metadata:
+      labels:
+        app: qbittiorrent
+    spec:
+      containers:
+        - image: ghcr.io/qdm12/gluetun:latest
+          name: gluetun
+          imagePullPolicy: Always
+          securityContext:
+            capabilities:
+              add: ["NET_ADMIN"]
+          ports:
+            - containerPort: 9091
+          env:
+            - name: TZ
+              value: America/New_York
+            - name: VPN_SERVICE_PROVIDER
+              value: protonvpn
+            - name: VPN_TYPE
+              value: "wireguard"
+            - name: WIREGUARD_PRIVATE_KEY
+              value: "<priv key val>"
+            - name: WIREGUARD_ADDRESSES
+              value: "<IP val>"
+            - name: FIREWALL_INPUT_PORTS
+              value: "9091"
+        - image: transmission
+          env:
+            TRANSMISSION__RPC_PORT: "9091"
+            TRANSMISSION__DOWNLOAD_DIR: /downloads/completed
+            TRANSMISSION__INCOMPLETE_DIR: /downloads/incomplete
+            envFrom:
+              - secretRef:
+                  name: transmission-secret
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }

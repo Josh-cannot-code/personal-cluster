@@ -20,6 +20,8 @@ metadata:
   name: jellyfin-local-discovery
   labels:
     app: jellyfin
+  annotations:
+    metallb.io/loadBalancerIPs: 192.168.18.51
 spec:
   selector:
     app: jellyfin
