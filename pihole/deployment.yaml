@@ -27,11 +27,6 @@ spec:
           env:
             - name: TZ
               value: "America/New_York"
-            - name: WEBPASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: pihole-secret
-                  key: pihole-password
           volumeMounts:
             - name: etc-pihole
               mountPath: /etc/pihole
