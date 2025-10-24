@@ -15,9 +15,6 @@ spec:
         app: qbittorrent
     spec:
       initContainers:
-        - image: busybox
-          name: wait-before-start
-          command: ["sh", "-c", "echo 'Waiting 15 seconds...' && sleep 15"]
         - image: ghcr.io/qdm12/gluetun:latest
           name: gluetun
           imagePullPolicy: Always
@@ -45,6 +42,9 @@ spec:
               value: /bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORTS}}}" http://localhost:9091/api/v2/app/setPreferences 2>&1'
             #- name: FIREWALL_INPUT_PORTS
             #  value: "9091"
+        - image: busybox
+          name: wait-before-start
+          command: ["sh", "-c", "echo 'Waiting 15 seconds...' && sleep 15"]
       containers:
         - name: qbittorrent
           image: lscr.io/linuxserver/qbittorrent:latest
