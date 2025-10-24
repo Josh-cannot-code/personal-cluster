@@ -19,3 +19,5 @@ resources:
   - ./qbittorrent/config-pvc.yaml
   - ./qbittorrent/service.yaml
   - ./namespace.yaml
+  - ./flaresolverr/service.yaml
+  - ./flaresolverr/deployment.yaml
