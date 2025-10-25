@@ -40,6 +40,8 @@ spec:
               value: on
             - name: VPN_PORT_FORWARDING_UP_COMMAND
               value: /bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORTS}}}" http://localhost:9091/api/v2/app/setPreferences 2>&1'
+            - name: DNS_ADDRESS
+              value: "8.8.8.8"
             #- name: FIREWALL_INPUT_PORTS
             #  value: "9091"
       containers:
