@@ -22,6 +22,10 @@ spec:
               default: true
             tls:
               enabled: true
+          dns-server:
+            port: 53
+            expose:
+              default: true
         ingressRoute:
           dashboard:
             enabled: true
