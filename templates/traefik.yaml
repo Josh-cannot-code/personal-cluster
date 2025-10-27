@@ -55,6 +55,8 @@ spec:
             dns-server:
               port: 53
               protocol: TCP
+              namespacePolicy:
+                from: All
         providers:
           kubernetesGateway:
             enabled: true
