@@ -52,6 +52,9 @@ spec:
               hostname: joshuadallacqua.com
               certificateRefs:    
                 - name: jdal-com-tls
+            dns-server:
+              port: 53
+              protocol: TCP
         providers:
           kubernetesGateway:
             enabled: true
