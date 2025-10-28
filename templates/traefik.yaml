@@ -11,6 +11,8 @@ spec:
     targetRevision: 37.1.2
     helm:
       values: |
+        additionalArguments:
+          - --entrypoints.dns-udp.address=:53/udp
         ports:
           web:
             port: 80
@@ -26,6 +28,11 @@ spec:
             port: 53
             expose:
               default: true
+          dns-udp:
+            port: 53
+            expose:
+              default: true
+            protocol: UDP
         ingressRoute:
           dashboard:
             enabled: true
@@ -59,11 +66,6 @@ spec:
             dns-server:
               port: 53
               protocol: TCP
-              namespacePolicy:
-                from: All
-            dns-server-udp:
-              port: 53
-              protocol: UDP
               namespacePolicy:
                 from: All
         providers:

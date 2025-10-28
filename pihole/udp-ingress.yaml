@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: dns-udp
+  namespace: pihole           # can live here or in the DNS service's namespace
+spec:
+  entryPoints:
+    - dns-udp                  # matches the Helm entrypoint name
+  routes:
+    - services:
+        - name: pihole
+          namespace: pihole
+          port: 53

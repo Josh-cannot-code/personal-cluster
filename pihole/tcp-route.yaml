@@ -14,20 +14,3 @@ spec:
         - name: pihole
           namespace: pihole
           port: 53
----
-apiVersion: gateway.networking.k8s.io/v1alpha2
-kind: TCPRoute
-metadata:
-  name: pihole-tcp
-  namespace: pihole
-spec:
-  parentRefs:
-    - name: traefik
-      sectionName: dns-server-udp
-      kind: Gateway
-
-  rules:
-     - backendRefs:
-        - name: pihole
-          namespace: pihole
-          port: 53
