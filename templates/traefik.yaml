@@ -61,9 +61,6 @@ spec:
               protocol: TCP
               namespacePolicy:
                 from: All
-              allowedRoutes:
-                kinds:
-                - kind: TCPRoute
         providers:
           kubernetesGateway:
             enabled: true
