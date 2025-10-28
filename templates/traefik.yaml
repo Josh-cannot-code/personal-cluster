@@ -61,6 +61,11 @@ spec:
               protocol: TCP
               namespacePolicy:
                 from: All
+            dns-server-udp:
+              port: 53
+              protocol: UDP
+              namespacePolicy:
+                from: All
         providers:
           kubernetesGateway:
             enabled: true
