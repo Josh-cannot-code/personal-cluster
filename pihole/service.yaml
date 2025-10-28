@@ -4,8 +4,8 @@ metadata:
   name: pihole
   labels:
     app: pihole
-  #annotations:
-  #  metallb.io/loadBalancerIPs: 192.168.18.99
+  annotations:
+    metallb.io/loadBalancerIPs: 192.168.18.99
 spec:
   type: ClusterIP
   ports:
