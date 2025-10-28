@@ -6,3 +6,4 @@ resources:
  # - ./namespace.yaml
   - ./pvc.yaml
   - ./tcp-route.yaml
+  - ./udp-ingress.yaml
