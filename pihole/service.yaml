@@ -9,14 +9,18 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - name: dns-udp
+#    - name: dns-udp
+#      port: 53
+#      protocol: UDP
+#      targetPort: 53
+#      nodePort: 30053
+#    - name: dns-tcp
+#      port: 53
+#      protocol: TCP
+#      targetPort: 53
+#      nodePort: 30053
+    - name: dns
       port: 53
-      protocol: UDP
-      targetPort: 53
-      nodePort: 30053
-    - name: dns-tcp
-      port: 53
-      protocol: TCP
       targetPort: 53
       nodePort: 30053
     - name: web
