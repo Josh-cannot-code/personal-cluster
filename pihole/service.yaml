@@ -4,26 +4,26 @@ metadata:
   name: pihole
   labels:
     app: pihole
-#  annotations:
-#    metallb.io/loadBalancerIPs: 192.168.18.99
+  annotations:
+    metallb.io/loadBalancerIPs: 192.168.18.99
 spec:
-#  type: LoadBalancer
-  type: NodePort
+  type: LoadBalancer
+  #type: NodePort
   ports:
     - name: dns-udp
       port: 53
       protocol: UDP
       targetPort: 53
-      nodePort: 53
+  #    nodePort: 53
     - name: dns-tcp
       port: 53
       protocol: TCP
       targetPort: 53
-      nodePort: 53
+  #    nodePort: 53
     - name: web
       port: 80
       protocol: TCP
       targetPort: 80
-      nodePort: 30080
+  #    nodePort: 30080
   selector:
     app: pihole
