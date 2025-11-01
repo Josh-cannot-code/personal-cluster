@@ -22,6 +22,7 @@ spec:
     - name: dns
       port: 53
       targetPort: 53
+      protocol: UDP
       nodePort: 30053
     - name: web
       port: 80
