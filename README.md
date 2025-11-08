@@ -45,3 +45,6 @@ minikube addons enable default-storageclass
           --path .
     argocd app sync apps
     ```
+
+## Node Affinity for jellyfin
+Add `kubectl label nodes <your-node-name> compute=true` to prefer jellyfin scheduling node
