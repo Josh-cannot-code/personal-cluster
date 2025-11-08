@@ -23,7 +23,7 @@ spec:
               - key: compute
                 operator: In
                 values:
-                - true
+                - "true"
       containers:
       - name: jellyfin
         image: jellyfin/jellyfin
