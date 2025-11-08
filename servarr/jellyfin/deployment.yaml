@@ -18,12 +18,12 @@ spec:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 1
-          preference:
-            matchExpressions:
-            - key: compute
-              operator: In
-              values:
-              - true
+            preference:
+              matchExpressions:
+              - key: compute
+                operator: In
+                values:
+                - true
       containers:
       - name: jellyfin
         image: jellyfin/jellyfin
