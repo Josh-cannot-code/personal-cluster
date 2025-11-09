@@ -5,12 +5,15 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    chart: grafana
-    repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 9.2.1
-    helm:
-      releaseName: grafana
+  sources:
+    - chart: grafana
+      repoURL: https://grafana.github.io/helm-charts
+      targetRevision: 9.2.1
+      helm:
+        releaseName: grafana
+    - path: lgtm/grafana
+      repoURL: https://github.com/Josh-cannot-code/personal-cluster
+      targetRevision: HEAD
   destination:
     name: "in-cluster"
     namespace: lgtm
