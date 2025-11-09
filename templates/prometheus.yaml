@@ -27,10 +27,10 @@ spec:
           enabled: false             # disable for minimal setup
 
         kube-state-metrics:
-          enabled: true              # recommended to keep cluster metrics
+          enabled: false              # recommended to keep cluster metrics
 
         nodeExporter:
-          enabled: true              # recommended, basic node metrics
+          enabled: false              # recommended, basic node metrics
   destination:
     name: "in-cluster"
     namespace: lgtm
