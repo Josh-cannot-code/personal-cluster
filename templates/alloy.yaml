@@ -16,7 +16,7 @@ spec:
           name: funky-cluster
 
         alloy-singleton:
-          enabled: true
+          enabled: false
 
         alloy-logs:
           enabled: true
@@ -39,7 +39,7 @@ spec:
           destinations: [loki]
 
         clusterEvents:
-          enabled: true
+          enabled: false
           destinations: [loki]
 
         # TODO later
