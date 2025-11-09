@@ -11,6 +11,40 @@ spec:
     targetRevision: 6.30.0
     helm:
       releaseName: loki
+      values: |
+        singleBinary:
+          replicas: 1
+          persistence:
+            enabled: true
+            size: 10Gi
+            storageClass: "longhorn"
+            accessModes:
+              - ReadWriteOnce
+        serviceMonitor:
+          enabled: true
+
+        loki:
+          auth_enabled: false
+          commonConfig:
+            replication_factor: 1
+          storage:
+            type: filesystem
+            filesystem:
+              chunks_directory: /var/loki/chunks
+              rules_directory: /var/loki/rules
+          schemaConfig:
+            configs:
+              - from: 2024-01-01
+                store: tsdb
+                object_store: filesystem
+                schema: v13
+                index:
+                  prefix: index_
+                  period: 24h
+
+        # Expose Loki internally (ClusterIP). For external access, put it behind an ingress/gateway.
+        gateway:
+          enabled: false
   destination:
     name: "in-cluster"
     namespace: lgtm
