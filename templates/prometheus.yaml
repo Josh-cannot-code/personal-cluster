@@ -20,17 +20,14 @@ spec:
         service:
           type: ClusterIP          # use LoadBalancer if you want external access
 
-        alertmanager:
-          enabled: true             # disable for minimal setup
-
-        pushgateway:
-          enabled: false             # disable for minimal setup
-
-        kube-state-metrics:
-          enabled: false              # recommended to keep cluster metrics
-
-        nodeExporter:
-          enabled: false              # recommended, basic node metrics
+       alertmanager:
+        enabled: true  
+       pushgateway:
+        enabled: false
+       kube-state-metrics:
+        enabled: false 
+       nodeExporter:
+        enabled: false  
   destination:
     name: "in-cluster"
     namespace: lgtm
