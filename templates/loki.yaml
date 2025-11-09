@@ -12,6 +12,7 @@ spec:
     helm:
       releaseName: loki
       values: |
+        deploymentMode: SingleBinary
         singleBinary:
           replicas: 1
           persistence:
