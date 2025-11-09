@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alloy
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: k8s-monitoring
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 2.1.4
+    helm:
+      releaseName: k8s-monitoring
+      values: |
+        externalServices:
+          # Connection information for Prometheus
+         # removed
+         
+          # Connection information for Grafana Loki
+          loki:
+            # -- Loki host where logs and events will be sent
+            # @section -- External Services (Loki)
+            #host: "http://192.168.117.5:3100"
+            host: "http://loki.lgtm.svc.cluster.local:3100"
+            # -- The key for the host property in the secret
+            #
+          # Settings related to capturing and forwarding metrics
+          metrics:
+            # -- Capture and forward metrics
+            # @section -- Metrics Global Settings
+            enabled: false
+
+  destination:
+    name: "in-cluster"
+    namespace: lgtm
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+
