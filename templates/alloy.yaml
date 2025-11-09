@@ -14,6 +14,10 @@ spec:
       values: |
         cluster:
           name: funky-cluster
+
+        alloy-singleton:
+          enabled: true
+
         # Where to send the data
         destinations:
           # Logs → your existing Loki
