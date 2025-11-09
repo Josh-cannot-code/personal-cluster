@@ -8,7 +8,7 @@ spec:
   source:
     path: grafana/loki
     repoURL: https://grafana.github.io/helm-charts
-    targetRevision: HEAD
+    targetRevision: 6.30.0
   destination:
     name: "in-cluster"
     namespace: lgtm

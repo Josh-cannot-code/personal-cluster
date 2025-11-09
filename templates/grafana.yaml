@@ -8,7 +8,7 @@ spec:
   source:
     path: grafana/grafana
     repoURL: https://grafana.github.io/helm-charts
-    targetRevision: HEAD
+    targetRevision: 9.2.1
   destination:
     name: "in-cluster"
     namespace: lgtm
