@@ -12,6 +12,8 @@ spec:
     helm:
       releaseName: k8s-monitoring
       values: |
+        cluster:
+          name: funky-cluster
         # Where to send the data
         destinations:
           # Logs → your existing Loki
