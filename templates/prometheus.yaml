@@ -12,22 +12,22 @@ spec:
     helm:
       releaseName: prometheus
       values: |
-       server:
-         persistentVolume:
-           enabled: true
-           size: 20Gi
-           storageClass: longhorn   # or your storage class
-         service:
-           type: ClusterIP          # use LoadBalancer if you want external access
+        server:
+          persistentVolume:
+            enabled: true
+            size: 20Gi
+            storageClass: longhorn
+          service:
+            type: ClusterIP
 
-       alertmanager:
-         enabled: true  
-       pushgateway:
-         enabled: false
-       kube-state-metrics:
-         enabled: false 
-       nodeExporter:
-         enabled: false  
+        alertmanager:
+          enabled: true
+        pushgateway:
+          enabled: false
+        kubeStateMetrics:
+          enabled: false
+        nodeExporter:
+          enabled: false
   destination:
     name: "in-cluster"
     namespace: lgtm
