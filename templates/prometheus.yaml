@@ -28,6 +28,8 @@ spec:
           enabled: false
         nodeExporter:
           enabled: false
+        prometheus-node-exporter:
+          enabled: false
   destination:
     name: "in-cluster"
     namespace: lgtm
