@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    path: grafana
+    path: grafana/grafana
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: HEAD
   destination:

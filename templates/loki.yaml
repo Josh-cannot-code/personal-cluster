@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    path: loki
+    path: grafana/loki
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: HEAD
   destination:
