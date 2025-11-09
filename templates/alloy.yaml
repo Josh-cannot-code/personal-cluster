@@ -18,6 +18,9 @@ spec:
         alloy-singleton:
           enabled: true
 
+        alloy-logs:
+          enabled: true
+
         # Where to send the data
         destinations:
           # Logs → your existing Loki
