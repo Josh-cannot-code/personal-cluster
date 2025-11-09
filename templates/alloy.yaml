@@ -12,24 +12,35 @@ spec:
     helm:
       releaseName: k8s-monitoring
       values: |
-        externalServices:
-          # Connection information for Prometheus
-         # removed
-         
-          # Connection information for Grafana Loki
-          loki:
-            # -- Loki host where logs and events will be sent
-            # @section -- External Services (Loki)
-            #host: "http://192.168.117.5:3100"
-            host: "http://loki.lgtm.svc.cluster.local:3100"
-            # -- The key for the host property in the secret
-            #
-          # Settings related to capturing and forwarding metrics
-          metrics:
-            # -- Capture and forward metrics
-            # @section -- Metrics Global Settings
-            enabled: false
+        # Where to send the data
+        destinations:
+          # Logs → your existing Loki
+          - name: loki
+            type: loki
+            url: http://loki.lgtm.svc.cluster.local:3100/loki/api/v1/push
 
+          # Metrics → Prometheus remote_write endpoint
+          #- name: prometheus
+          #  type: prometheus
+          #  url: http://prometheus-operated.monitoring.svc:9090/api/v1/write
+
+        # Enable features (send only to relevant destinations)
+        podLogs:
+          enabled: true
+          destinations: [loki]
+
+        clusterEvents:
+          enabled: true
+          destinations: [loki]
+
+        # TODO later
+        clusterMetrics:
+          enabled: false
+          destinations: [prometheus]
+
+        # (optional) expose ServiceMonitors for Alloy, etc.
+        serviceMonitor:
+          enabled: true
   destination:
     name: "in-cluster"
     namespace: lgtm
