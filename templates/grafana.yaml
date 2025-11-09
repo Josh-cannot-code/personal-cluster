@@ -11,6 +11,19 @@ spec:
       targetRevision: 9.2.1
       helm:
         releaseName: grafana
+        values: |
+          persistence:
+            enabled: true
+            type: pvc
+            accessModes: [ReadWriteOnce]
+            size: 10Gi
+            storageClassName: longhorn 
+            finalizers:
+              - kubernetes.io/pvc-protection
+          initChownData:
+            enabled: true
+          podSecurityContext:
+            fsGroup: 472
     - path: lgtm/grafana
       repoURL: https://github.com/Josh-cannot-code/personal-cluster
       targetRevision: HEAD
