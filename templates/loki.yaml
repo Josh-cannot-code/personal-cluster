@@ -6,9 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    path: grafana/loki
+    chart: loki
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 6.30.0
+    helm:
+      releaseName: loki
   destination:
     name: "in-cluster"
     namespace: lgtm

@@ -6,9 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    path: grafana
+    chart: grafana
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 9.2.1
+    helm:
+      releaseName: grafana
   destination:
     name: "in-cluster"
     namespace: lgtm
