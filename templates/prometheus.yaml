@@ -12,13 +12,13 @@ spec:
     helm:
       releaseName: prometheus
       values: |
-         server:
-          persistentVolume:
-            enabled: true
-            size: 20Gi
-            storageClass: longhorn   # or your storage class
-          service:
-            type: ClusterIP          # use LoadBalancer if you want external access
+       server:
+        persistentVolume:
+          enabled: true
+          size: 20Gi
+          storageClass: longhorn   # or your storage class
+        service:
+          type: ClusterIP          # use LoadBalancer if you want external access
 
         alertmanager:
           enabled: true             # disable for minimal setup
