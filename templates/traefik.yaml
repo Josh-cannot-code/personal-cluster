@@ -13,6 +13,18 @@ spec:
       values: |
         additionalArguments:
           - --entrypoints.dns-udp.address=:53/udp
+        metrics:
+          prometheus:
+            entryPoint: metrics
+            addEntryPointLabels: true
+            addServiceLabels: true
+        serviceMonitor:
+          enabled: true
+          namespace: traefik          # where Traefik runs
+          labels:
+            release: prometheus       # label your Prometheus Operator watches
+          interval: 15s
+          scrapeTimeout: 10s
         ports:
           web:
             port: 80
