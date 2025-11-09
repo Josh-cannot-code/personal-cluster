@@ -31,7 +31,7 @@ spec:
           # Metrics → Prometheus remote_write endpoint
           #- name: prometheus
           #  type: prometheus
-          #  url: http://prometheus-operated.monitoring.svc:9090/api/v1/write
+          #  url: http://prometheus-server.lgtm.svc.cluster.local:80/api/v1/write
 
         # Enable features (send only to relevant destinations)
         podLogs:
